@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Всегда начинаем с верстки -->
+    <div class="jskmb-calculator">
+      <div class="operations-block">
+        <button id="buttonPlus">+</button>
+        <button id="buttonMinus">-</button>
+        <button id="buttonMultiply">*</button>
+        <button id="buttonDevide">/</button>
+      </div>
+      <div class="separator">
+        <hr />
+      </div>
+      <div class="inputs-block">
+        <div class="input-block">
+          <label for="">number 1</label>
+          <input type="number" id="number1" />
+        </div>
+        <div class="input-block">
+          <label for="">number 2</label>
+          <input type="number" id="number2" />
+        </div>
+      </div>
+    </div>
+    <style>
+      .jskmb-calculator {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        background: cornflowerblue;
+        padding: 20px;
+        border: 1px solid black;
+      }
+
+      .jskmb-calculator .operations-block button {
+        height: 40px;
+        width: 40px;
+        margin: 20px;
+      }
+
+      .jskmb-calculator .inputs-block .input-block {
+        display: inline-block;
+        padding: 10px;
+      }
+
+      .jskmb-calculator .inputs-block .input-block label {
+        display: block;
+      }
+      /* Т.к. label строчный элемент переводим его в блочный */
+    </style>
+
+    <script>
+      // Чтобы найти кнопки им надо добавить id
+
+      // Находим элемент
+      // document.getElementById("buttonPlus");
+
+      // Хватаемся за нашедшейся элемент переменной с темже именем. Не надо называть переменные типа button1, button2, вы запутаетесь. Называть понятными именами.
+      var buttonPlus = document.getElementById("buttonPlus");
+      var buttonMinus = document.getElementById("buttonMinus");
+      var buttonMultiply = document.getElementById("buttonMultiply");
+      var buttonDevide = document.getElementById("buttonDevide");
+      // ___________________________________________________________
+      // Создаем функцию лисенера(слушателя)
+      function onButtonPlusClick() {
+        // console.log("onButtonPlusClick");
+
+        // Даем смысловую нагрузку (прописываем математические действия)
+        var input1 = document.getElementById("number1");
+        var input2 = document.getElementById("number2");
+
+        var number1 = Number(input1.value);
+        var number2 = Number(input2.value);
+        // Если оставить так input2.value, то в ответе будет не посчитанное число, а склеенные два числа, поэтому записываем так Number(input2.value)
+
+        var summ = number1 + number2;
+        window.alert(summ);
+      }
+
+      function onButtonMinusClick() {
+        // console.log("onButtonMinusClick");
+        var input1 = document.getElementById("number1");
+        var input2 = document.getElementById("number2");
+
+        var number1 = Number(input1.value);
+        var number2 = Number(input2.value);
+
+        var summ = number1 - number2;
+        window.alert(summ);
+      }
+
+      function onButtonMultiplyClick() {
+        // console.log("onButtonMultiplyClick");
+        var input1 = document.getElementById("number1");
+        var input2 = document.getElementById("number2");
+
+        var number1 = Number(input1.value);
+        var number2 = Number(input2.value);
+
+        var summ = number1 * number2;
+        window.alert(summ);
+      }
+
+      function onButtonDevideClick() {
+        // console.log("onButtonDevideClick");
+        var input1 = document.getElementById("number1");
+        var input2 = document.getElementById("number2");
+
+        var number1 = Number(input1.value);
+        var number2 = Number(input2.value);
+
+        var summ = number1 / number2;
+        window.alert(summ);
+      }
+
+      // ____________________________________________________________
+      // Связываем кнопки и лисенер, делаем привязку. (кнопка, добавь себе слушателя на событие click)
+
+      buttonPlus.addEventListener("click", onButtonPlusClick);
+      buttonMinus.addEventListener("click", onButtonMinusClick);
+      buttonMultiply.addEventListener("click", onButtonMultiplyClick);
+      buttonDevide.addEventListener("click", onButtonDevideClick);
+    </script>
+  </body>
+</html>
